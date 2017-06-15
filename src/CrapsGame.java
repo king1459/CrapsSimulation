@@ -23,7 +23,7 @@ public class CrapsGame
 
 	public boolean playOneGame(int[] wins, int[] losses)
 	{
-		int steps = 1;
+		int gamesPlayed = 1;
 
 		// Roll the dice
 		// Get the value of the roll as point
@@ -40,12 +40,12 @@ public class CrapsGame
 		
 		if (point == 7 || point == 11)
 		{
-			return winForPlayer(wins, steps);
+			return winForPlayer(wins, gamesPlayed);
 		}
 		else if (point==2 || point == 3 || point==12)
 		{
 			println("Loss for player with " + point);
-			losses[steps] = losses[steps] + 1; // number of losses with exactly steps # of steps.
+			losses[gamesPlayed] = losses[gamesPlayed] + 1; // number of losses with exactly steps # of steps.
 			// losses[steps]++; 
 			return false;
 		}
@@ -71,7 +71,7 @@ public class CrapsGame
 			do
 			{
 				dice.roll();
-				steps++;
+				gamesPlayed++;
 				value = dice.getLastRoll();
 				println("Next roll is: " + value);
 			}
@@ -95,14 +95,14 @@ public class CrapsGame
 			{
 				// loss: record losses and return false
 				println("You lose throwing a 7.");
-				losses[steps]++;
+				losses[gamesPlayed]++;
 				return false;
 			}
 			else if (value==point)
 			{
 				// win: record wins and return false
 				println("You win by throwing your point " + value);
-				wins[steps]++;
+				wins[gamesPlayed]++;
 				return true;
 
 			}
@@ -111,10 +111,10 @@ public class CrapsGame
 		return false;
 	}
 
-	private boolean winForPlayer(int[] wins, int steps)
+	private boolean winForPlayer(int[] wins, int gamesPlayed)
 	{
 		println("Win for player with " + point);
-		wins[steps] = wins[steps] + 1; // number of wins with exactly steps # of steps.
+		wins[gamesPlayed] = wins[gamesPlayed] + 1; // number of wins with exactly steps # of steps.
 		// wins[steps]++; 
 		return true;
 	}
