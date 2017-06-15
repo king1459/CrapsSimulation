@@ -73,7 +73,7 @@ public class Dice
 	public static void main(String[] args)
 	{
 		Dice dice1 = new Dice();
-		int snakeEyesCount = 0;
+		int rollValueTwo = 0;
 
 		for (int i = 0; i < NUM_TRIALS; i++)
 		{
@@ -81,10 +81,10 @@ public class Dice
 			StdOut.println(dice1);
 			
 			if (dice1.getLastRoll() == 2)
-				snakeEyesCount++;
+				rollValueTwo++;
 		}
 
-		StdOut.println("Actual count: " + snakeEyesCount);
+		StdOut.println("Actual count: " + rollValueTwo);
 		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
 	}
 }
